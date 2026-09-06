@@ -1,0 +1,208 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+html{scroll-behavior:auto}
+body{background:#07120c;color:#f5f0e4;font-family:"DM Sans",Arial,sans-serif}
+body.urdu{font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic","Noto Sans Arabic",Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.site-header{position:fixed;top:0;left:0;right:0;height:110px;z-index:100;background:rgba(3,12,7,.96);border-bottom:1px solid rgba(218,175,71,.30);backdrop-filter:blur(14px)}
+.nav-wrap{height:100%;max-width:1500px;margin:auto;padding:10px 34px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px;min-width:max-content;order:2}
+.brand-copy{display:flex;flex-direction:column;align-items:flex-end}
+.brand-copy strong{font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:.035em;color:#f1c95d;white-space:nowrap}
+.brand-copy small{font-size:11px;letter-spacing:.18em;color:#fff;margin-top:1px}
+.brand-mark{width:78px;height:78px;border-radius:50%;overflow:hidden;flex:none}
+.brand-mark img{width:100%;height:100%;object-fit:contain}
+
+.nav-links{order:1;display:flex;align-items:center;gap:24px;font-size:14px;letter-spacing:.04em}
+.nav-links>a{opacity:.92;position:relative;padding:10px 0;transition:.25s;white-space:nowrap}
+.nav-links>a:hover,.nav-links>a.active{color:#e5bd55}
+.nav-links>a.active:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#e5bd55}
+.lang-switch{display:flex;border:1px solid rgba(219,178,76,.5);border-radius:5px;padding:2px}
+.lang{border:0;background:transparent;color:#eee;padding:8px 13px;border-radius:3px;cursor:pointer}
+.lang.active{background:#cda64c;color:#07120c}
+.phone-top{background:#e9b94e!important;color:#08120c!important;padding:13px 22px!important;border-radius:5px;font-weight:700}
+
+.menu-toggle{display:none;background:none;border:0;cursor:pointer}
+.menu-toggle span{display:block;width:27px;height:2px;background:#e8d18a;margin:5px}
+
+.horizontal-page{position:fixed;inset:0;overflow:hidden}
+.panel{position:absolute;inset:0;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;padding-top:110px;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(100%);transition:transform .65s cubic-bezier(.77,0,.18,1),opacity .2s ease,visibility 0s linear .65s;scrollbar-width:thin;scrollbar-color:#cda64c #07120c}
+.panel.active{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0);transition:transform .65s cubic-bezier(.77,0,.18,1),opacity .2s ease}
+.panel.prev{transform:translateX(-100%)}
+.panel::-webkit-scrollbar{width:7px}
+.panel::-webkit-scrollbar-thumb{background:#cda64c}
+
+.hero-panel{overflow:hidden}
+.hero-bg{position:absolute;inset:110px 0 0;background:url("assets/agriculture-hero.jpg") center/cover no-repeat;z-index:0}
+.hero-shade{position:absolute;inset:110px 0 0;background:linear-gradient(90deg,rgba(1,8,4,.90),rgba(2,8,5,.40) 50%,rgba(2,8,5,.70)),linear-gradient(0deg,rgba(2,8,5,.84),transparent 48%,rgba(2,8,5,.15));z-index:1}
+.hero-content{position:relative;z-index:2;min-height:calc(100vh - 110px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px 20px 135px}
+.eyebrow{font-size:13px;letter-spacing:.20em;color:#e0bb5b;margin:0 0 12px;text-transform:uppercase;font-weight:700}
+.hero-logo{width:min(350px,34vw);margin:2px auto 5px}
+.hero-logo img{width:100%;display:block;filter:drop-shadow(0 15px 35px rgba(0,0,0,.65))}
+.hero-kicker{font-family:"Cormorant Garamond",serif;font-size:31px;font-weight:700;color:#fff;letter-spacing:.06em}
+.hero-content h1{font-family:"Cormorant Garamond",serif;color:#e9bb51;font-size:clamp(34px,4.1vw,58px);line-height:.98;margin:5px 0 10px}
+.ornament{color:#e2bd5b;font-size:14px;margin:0 0 7px;letter-spacing:.1em}
+.hero-text{max-width:720px;color:#fff;font-size:15px;line-height:1.7;margin:0}
+.hero-actions{display:flex;gap:14px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:.25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:#e3b947;color:#07120c}
+.btn-ghost{border:1px solid #e0b953;background:rgba(0,0,0,.30)}
+.btn-dark{background:#07120c;color:#e9c766}
+.btn-outline-dark{border:1px solid rgba(0,0,0,.5);color:#07120c}
+.trust-strip{position:absolute;left:0;right:0;bottom:0;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(2,19,10,.95);border-top:1px solid rgba(226,186,77,.55)}
+.trust-strip div{min-height:86px;padding:14px 25px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(218,175,71,.28)}
+.trust-strip div:last-child{border-right:0}
+.trust-strip strong{font-family:"Cormorant Garamond",serif;font-size:27px;color:#e9bc54}
+.trust-strip span{font-size:11px;letter-spacing:.07em;color:#fff}
+
+.content-panel{background:#07120c}
+.about-panel{background:radial-gradient(circle at 75% 20%,rgba(203,167,79,.08),transparent 30%),#07120c}
+.section-inner{max-width:1220px;margin:auto;padding:80px 42px 70px;min-height:calc(100vh - 110px)}
+.section-inner.wide{max-width:1320px}
+.section-heading>span{font-family:"Cormorant Garamond",serif;font-size:21px;color:#caa24b}
+.section-heading h2{font-family:"Cormorant Garamond",serif;font-size:clamp(43px,5vw,68px);line-height:.94;margin:8px 0 32px;font-weight:600;max-width:800px}
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px}
+.about-copy{color:#cfcabc;line-height:1.9;font-size:15px;padding-right:22px}
+.lead{font-family:"Cormorant Garamond",serif;color:#f0e8d5;font-size:27px;line-height:1.35;margin-top:0}
+.owner-card,.value-card{border:1px solid rgba(205,165,75,.28);padding:27px;background:rgba(255,255,255,.025)}
+.owner-card{grid-column:2/4;background:linear-gradient(135deg,rgba(205,165,75,.10),rgba(255,255,255,.02))}
+.owner-label,.value-card>span{color:#cba74f;font-size:10px;letter-spacing:.18em}
+.owner-card h3{font-family:"Cormorant Garamond",serif;font-size:40px;margin:13px 0 0;color:#f0d17b}
+.owner-card>span{font-family:"Cormorant Garamond",serif;color:#d5b45f;font-size:24px}
+.owner-card p{color:#b9b7a9}
+.value-card h3{font-family:"Cormorant Garamond",serif;font-size:28px;margin:18px 0 7px}
+.value-card p{color:#aaa99d;line-height:1.7;font-size:13px;margin:0}
+
+.produce-panel{background:linear-gradient(135deg,#07120c,#0c1e13)}
+.produce-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.produce-card{position:relative;min-height:190px;padding:22px;border:1px solid rgba(213,174,79,.24);border-radius:4px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.01) 48%,rgba(0,0,0,.22)),#0d2116;transition:.3s;overflow:hidden}
+.produce-card:hover{transform:translateY(-6px);border-color:rgba(230,194,103,.65);box-shadow:0 20px 45px rgba(0,0,0,.3)}
+.produce-card:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,#d4af59 30%,#f0d27f 50%,#d4af59 70%,transparent)}
+.produce-card>b{position:absolute;right:20px;top:18px;font-family:"Cormorant Garamond",serif;font-size:17px;color:#d5b45f}
+.crop-art{width:58px;height:58px;display:grid;place-items:center;border:1px solid rgba(218,182,91,.3);border-radius:50%;background:rgba(205,165,75,.08);font-size:28px;margin-bottom:19px}
+.produce-card h3{font-family:"Cormorant Garamond",serif;color:#f4ead2;font-size:30px;line-height:1;margin:0}
+.produce-card p{font-family:"Noto Nastaliq Urdu",serif;color:#d6b762;font-size:17px;margin:5px 0}
+.produce-card small{position:absolute;left:22px;bottom:18px;font-size:8px;letter-spacing:.20em;color:#7f9a85}
+
+.why-panel{display:grid;grid-template-columns:1fr 1fr;background:#07120c}
+.why-photo{min-height:100%;background:url("assets/agriculture-hero.jpg") center/cover;filter:saturate(.75)}
+.why-content{padding:80px clamp(35px,6vw,90px);overflow-y:auto}
+.why-list{border-top:1px solid rgba(203,167,79,.28)}
+.why-item{display:grid;grid-template-columns:45px 1fr;gap:15px;padding:21px 0;border-bottom:1px solid rgba(203,167,79,.2)}
+.why-item>strong{color:#caa34f;font-family:"Cormorant Garamond",serif;font-size:22px}
+.why-item h3{font-family:"Cormorant Garamond",serif;font-size:28px;margin:0 0 4px}
+.why-item p{margin:0;color:#aaa99d;line-height:1.7;font-size:13px}
+
+.contact-panel{background:url("assets/agriculture-hero.jpg") center/cover;display:flex;flex-direction:column;justify-content:center;padding:135px 7vw 30px}
+.contact-overlay{position:absolute;inset:110px 0 0;background:rgba(3,12,7,.72)}
+.contact-box{position:relative;z-index:2;max-width:1050px;width:100%;margin:auto;background:linear-gradient(145deg,#b78b36,#e0bf69 50%,#a8792b);color:#10150f;padding:58px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.contact-box h2{font-family:"Cormorant Garamond",serif;font-size:clamp(40px,5vw,66px);line-height:.94;margin:0;max-width:820px}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:35px 0 19px;border-top:1px solid rgba(0,0,0,.25);padding-top:19px}
+.contact-grid small{display:block;font-size:9px;letter-spacing:.18em;margin-bottom:7px}
+.contact-grid strong{font-size:14px}
+.owners-line{border-top:1px solid rgba(0,0,0,.22);padding-top:17px;display:flex;gap:15px;align-items:center}
+.owners-line span{font-size:10px;letter-spacing:.18em}
+.owners-line strong{font-family:"Cormorant Garamond",serif;font-size:25px}
+.left-actions{justify-content:flex-start}
+footer{position:relative;z-index:2;max-width:1050px;width:100%;margin:20px auto 0;display:flex;justify-content:space-between;font-size:10px;letter-spacing:.08em;color:#eee}
+
+.next-button{margin-top:30px;border:0;border-bottom:1px solid #cba74f;background:none;color:#d9b75c;padding:9px 0;cursor:pointer;font-size:11px;letter-spacing:.10em}
+.next-button:hover{color:#fff}
+
+body.urdu .nav-links,
+body.urdu .nav-links a,
+body.urdu .lang-switch,
+body.urdu .hero-text,
+body.urdu .section-heading,
+body.urdu .about-copy,
+body.urdu .owner-card,
+body.urdu .value-card,
+body.urdu .why-content,
+body.urdu .why-item,
+body.urdu .contact-box,
+body.urdu footer{font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic","Noto Sans Arabic",Arial,sans-serif}
+body.urdu .nav-links a{letter-spacing:0}
+body.urdu .section-heading h2,
+body.urdu .hero-content h1,
+body.urdu .hero-kicker,
+body.urdu .lead,
+body.urdu .owner-card h3,
+body.urdu .value-card h3,
+body.urdu .why-item h3,
+body.urdu .contact-box h2{line-height:1.55}
+body.urdu .hero-text,
+body.urdu .about-copy,
+body.urdu .value-card p,
+body.urdu .why-item p{line-height:2.05}
+body.urdu .contact-grid strong{line-height:1.8}
+body.urdu .next-button{letter-spacing:0}
+body.urdu .nav-links{direction:rtl}
+body.urdu .contact-box{text-align:right}
+body.urdu .owners-line{direction:rtl}
+body.urdu .left-actions{justify-content:flex-start}
+
+@media(max-width:1100px){
+  .nav-links{gap:14px;font-size:12px}
+  .brand-copy strong{font-size:22px}
+  .phone-top{padding:11px 15px!important}
+  .produce-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr 1fr}
+  .about-copy{grid-column:1/-1}
+  .owner-card{grid-column:auto}
+}
+@media(max-width:800px){
+  .site-header{height:78px}
+  .nav-wrap{padding:8px 16px}
+  .brand{order:1}
+  .brand-mark{width:55px;height:55px}
+  .brand-copy strong{font-size:17px}
+  .brand-copy small{font-size:8px}
+  .menu-toggle{display:block;order:2}
+  .nav-links{position:absolute;top:78px;left:12px;right:12px;background:rgba(7,18,12,.99);border:1px solid rgba(203,167,79,.35);padding:10px;display:flex;flex-direction:column;align-items:stretch;gap:2px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-10px);transition:.25s;order:0}
+  .nav-links.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+  .nav-links>a{padding:13px 15px;border-bottom:1px solid rgba(203,167,79,.12)}
+  .nav-links>a.active:after{display:none}
+  .lang-switch{align-self:flex-start;margin:7px 5px}
+  .phone-top{text-align:center}
+  .panel{padding-top:78px}
+  .hero-bg,.hero-shade{inset:78px 0 0}
+  .hero-content{min-height:calc(100vh - 78px);padding-bottom:130px}
+  .hero-logo{width:min(260px,55vw)}
+  .hero-kicker{font-size:23px}
+  .hero-content h1{font-size:38px}
+  .hero-text{font-size:13px}
+  .trust-strip{grid-template-columns:repeat(2,1fr)}
+  .trust-strip div{min-height:60px;padding:9px 12px}
+  .trust-strip strong{font-size:21px}
+  .trust-strip span{font-size:8px}
+  .section-inner{padding:65px 22px 50px}
+  .section-heading h2{font-size:43px}
+  .about-grid{grid-template-columns:1fr}
+  .about-copy,.owner-card{grid-column:auto}
+  .produce-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .produce-card{min-height:165px;padding:19px}
+  .produce-card h3{font-size:27px}
+  .why-panel{display:block}
+  .why-photo{height:235px;min-height:235px}
+  .why-content{padding:55px 22px 70px}
+  .contact-panel{padding:95px 20px 25px}
+  .contact-overlay{inset:78px 0 0}
+  .contact-box{padding:36px 24px}
+  .contact-grid{grid-template-columns:1fr;gap:15px}
+  .owners-line{display:block}
+  .owners-line strong{display:block;margin-top:5px}
+  footer{display:block;line-height:1.8}
+}
+@media(max-width:430px){
+  .brand-copy{display:none}
+  .hero-logo{width:205px}
+  .hero-kicker{font-size:20px}
+  .hero-content h1{font-size:32px}
+  .hero-actions{gap:8px}
+  .btn{padding:11px 14px;font-size:10px}
+  .produce-card{min-height:155px}
+  .crop-art{width:50px;height:50px;font-size:24px}
+}
